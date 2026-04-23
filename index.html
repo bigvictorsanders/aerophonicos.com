@@ -42,14 +42,36 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(201,168,76,0.2);
         }
+        .topbar-left {
+            display: flex; align-items: center; gap: 24px;
+        }
         .topbar-logo {
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 11px; font-weight: 600;
             letter-spacing: 0.18em; text-transform: uppercase;
             color: var(--gold);
             text-decoration: none;
+            white-space: nowrap;
         }
         .topbar-logo span { color: var(--offwhite); opacity: 0.5; }
+
+        /* Language buttons in top bar */
+        .topbar-lang {
+            display: flex; gap: 6px;
+            align-items: center;
+        }
+        .lang-btn {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--offwhite);
+            background: transparent; border: 1px solid rgba(201,168,76,0.4);
+            padding: 4px 8px; border-radius: 4px;
+            cursor: pointer; opacity: 0.7;
+            transition: opacity 0.2s, background 0.2s, color 0.2s;
+        }
+        .lang-btn:hover { opacity: 1; background: var(--gold); color: var(--black); }
+        .lang-btn.active { opacity: 1; background: var(--gold); color: var(--black); }
+
         .topbar-nav { display: flex; gap: 32px; align-items: center; }
         .topbar-nav a {
             font-family: 'Barlow Condensed', sans-serif;
@@ -59,20 +81,6 @@
             transition: opacity 0.2s, color 0.2s;
         }
         .topbar-nav a:hover { opacity: 1; color: var(--gold); }
-
-        /* Language buttons */
-        .lang-buttons { display: flex; gap: 8px; margin-left: 20px; }
-        .lang-btn {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-            text-transform: uppercase; color: var(--offwhite);
-            background: transparent; border: 1px solid rgba(201,168,76,0.4);
-            padding: 6px 12px; border-radius: 4px;
-            cursor: pointer; opacity: 0.7;
-            transition: opacity 0.2s, background 0.2s, color 0.2s;
-        }
-        .lang-btn:hover { opacity: 1; background: var(--gold); color: var(--black); }
-        .lang-btn.active { opacity: 1; background: var(--gold); color: var(--black); }
 
         /* ── HAMBURGER ── */
         .hamburger {
@@ -289,13 +297,22 @@
             .hamburger { display: flex; }
             .topbar-nav {
                 position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
-                background: #0a0a0a;   /* FONDO SÓLIDO COMPLETO */
+                background: #0a0a0a !important;  /* force solid */
                 flex-direction: column; align-items: center; justify-content: center;
-                gap: 30px; display: none; z-index: 99; padding: 40px 20px;
+                gap: 30px;
+                display: flex;
+                z-index: 99; padding: 40px 20px;
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0.2s, opacity 0.2s;
             }
-            .topbar-nav.active { display: flex; }
+            .topbar-nav.active {
+                visibility: visible;
+                opacity: 1;
+            }
             .topbar-nav a { font-size: 16px; opacity: 0.8; }
-            .lang-buttons { margin-left: 0; margin-top: 20px; }
+
+            /* language buttons on top bar already shown, no need to duplicate */
         }
     </style>
 </head>
@@ -303,7 +320,14 @@
 
     <!-- TOPBAR -->
     <nav class="topbar">
-        <a href="https://makeartnotwar.org" class="topbar-logo">Make Art Not War <span>Foundation</span></a>
+        <div class="topbar-left">
+            <a href="https://makeartnotwar.org" class="topbar-logo">Make Art Not War <span>Foundation</span></a>
+            <!-- Language buttons next to logo -->
+            <div class="topbar-lang">
+                <button class="lang-btn active" onclick="changeLang('es')" id="btn-es">🇪🇸 ES</button>
+                <button class="lang-btn" onclick="changeLang('en')" id="btn-en">🇬🇧 EN</button>
+            </div>
+        </div>
         <button class="hamburger" id="hamburger" aria-label="Menú">
             <span></span><span></span><span></span>
         </button>
@@ -314,10 +338,6 @@
             <a href="#videos">Videos</a>
             <a href="#prensa">Prensa</a>
             <a href="#contacto">Booking</a>
-            <div class="lang-buttons">
-                <button class="lang-btn active" onclick="changeLang('es')" id="btn-es">🇪🇸 ES</button>
-                <button class="lang-btn" onclick="changeLang('en')" id="btn-en">🇬🇧 EN</button>
-            </div>
         </div>
     </nav>
 
@@ -554,7 +574,13 @@
         // Menú hamburguesa
         const hamburger = document.getElementById('hamburger');
         const nav = document.getElementById('topbar-nav');
-        hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+        hamburger.addEventListener('click', () => {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            } else {
+                nav.classList.add('active');
+            }
+        });
         nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
