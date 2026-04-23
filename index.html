@@ -56,10 +56,7 @@
         .topbar-logo span { color: var(--offwhite); opacity: 0.5; }
 
         /* Language buttons in top bar */
-        .topbar-lang {
-            display: flex; gap: 6px;
-            align-items: center;
-        }
+        .topbar-lang { display: flex; gap: 6px; align-items: center; }
         .lang-btn {
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
@@ -220,10 +217,28 @@
         /* ── INTEGRANTES ── */
         .integrantes-section { background: var(--black); }
         .integrantes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .miembro-card { background: rgba(28,28,28,0.5); border: 1px solid rgba(201,168,76,0.2); border-radius: 6px; overflow: hidden; }
-        .miembro-nombre { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em; color: var(--gold); padding: 20px 24px 0; }
-        .miembro-rol { font-size: 12px; letter-spacing: 0.1em; color: var(--dimtext); padding: 0 24px 16px; text-transform: uppercase; }
-        details { border-top: 1px solid rgba(201,168,76,0.15); }
+        .miembro-card {
+            background: rgba(28,28,28,0.5); border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 6px; overflow: hidden; text-align: center;
+        }
+        .miembro-foto {
+            width: 65%;
+            margin: 28px auto 0;
+            display: block;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid rgba(201,168,76,0.25);
+        }
+        .miembro-nombre {
+            font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em;
+            color: var(--gold); padding: 20px 24px 0;
+        }
+        .miembro-rol {
+            font-size: 12px; letter-spacing: 0.1em; color: var(--dimtext);
+            padding: 0 24px 16px; text-transform: uppercase;
+        }
+        details { border-top: 1px solid rgba(201,168,76,0.15); text-align: left; }
         summary {
             padding: 16px 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.15em;
             text-transform: uppercase; color: var(--gold); cursor: pointer; transition: background 0.3s;
@@ -297,7 +312,7 @@
             .hamburger { display: flex; }
             .topbar-nav {
                 position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
-                background: #0a0a0a !important;  /* force solid */
+                background: #0a0a0a !important;
                 flex-direction: column; align-items: center; justify-content: center;
                 gap: 30px;
                 display: flex;
@@ -306,13 +321,8 @@
                 opacity: 0;
                 transition: visibility 0.2s, opacity 0.2s;
             }
-            .topbar-nav.active {
-                visibility: visible;
-                opacity: 1;
-            }
+            .topbar-nav.active { visibility: visible; opacity: 1; }
             .topbar-nav a { font-size: 16px; opacity: 0.8; }
-
-            /* language buttons on top bar already shown, no need to duplicate */
         }
     </style>
 </head>
@@ -322,7 +332,6 @@
     <nav class="topbar">
         <div class="topbar-left">
             <a href="https://makeartnotwar.org" class="topbar-logo">Make Art Not War <span>Foundation</span></a>
-            <!-- Language buttons next to logo -->
             <div class="topbar-lang">
                 <button class="lang-btn active" onclick="changeLang('es')" id="btn-es">🇪🇸 ES</button>
                 <button class="lang-btn" onclick="changeLang('en')" id="btn-en">🇬🇧 EN</button>
@@ -426,41 +435,106 @@
         </div>
     </section>
 
-    <!-- INTEGRANTES -->
+    <!-- INTEGRANTES (actualizado) -->
     <section class="integrantes-section" id="integrantes">
         <div class="container">
             <p class="section-label">Miembros</p>
             <h2 class="section-title">Acompañan a <em>Tony Coleman</em> en esta gira</h2>
             <div class="integrantes-grid">
-                <!-- Víctor Sanders -->
+                <!-- VÍCTOR SANDERS -->
                 <div class="miembro-card">
+                    <img class="miembro-foto" src="https://raw.githubusercontent.com/bigvictorsanders/aerophonicos.com/9d3b1fbfa220921e8503f47922d39ac79060a2a9/victor.jpeg" alt="Víctor Sanders">
                     <h3 class="miembro-nombre">Víctor Sanders</h3>
                     <p class="miembro-rol">Bajo / Contrabajo / Dirección</p>
-                    <details><summary>Ver biografía completa</summary><div class="miembro-bio-full">Nacido el 26 de enero de 1983. Bajista eléctrico / Contrabajista / Compositor / Arreglador / Productor / Docente. ...</div></details>
+                    <details>
+                        <summary>Ver biografía completa</summary>
+                        <div class="miembro-bio-full">
+Nacido el 26 de enero de 1983. Bajista eléctrico, contrabajista, compositor, arreglador, productor y docente.
+Con más de 20 años de trayectoria, trabajó con Patán Vidal, Ligia Piro, Negra Chagra, Soulville (tributo a Aretha Franklin) y Los Massolo en Argentina.
+En España colaboró con Norman Hogue, Pitingo (gira "Ole y Amén"), Juan y Lucas Carmona, Depedro, Antonio Carmona y Vasti Jackson, entre otros.
+Desde 2014 integra Aerophonicos y acompañó a Celeste Carballo, Javier Calamaro, Gustavo Silva y Edelmiro Molinari.
+Editó tres discos solistas: "Big Victor Band", "Ecléctico" y "Victor Sanders".
+Fue becado por Berklee College of Music y obtuvo el primer premio en el concurso EMBA.
+
+📷 Instagram: <a href="https://instagram.com/bigvictorsanders" target="_blank" style="color:var(--gold);">@bigvictorsanders</a>
+                        </div>
+                    </details>
                 </div>
-                <!-- Pedro Colpachi -->
+
+                <!-- PEDRO COLPACHI -->
                 <div class="miembro-card">
+                    <img class="miembro-foto" src="https://raw.githubusercontent.com/bigvictorsanders/aerophonicos.com/1f120289f1d941aa2325ac49d4388f7f8c36b634/pedro.jpeg" alt="Pedro Colpachi">
                     <h3 class="miembro-nombre">Pedro Colpachi</h3>
                     <p class="miembro-rol">Batería</p>
-                    <details><summary>Ver biografía completa</summary><div class="miembro-bio-full">Buenos Aires, 10 de marzo de 1979. Baterista, Intérprete, Compositor y Productor. ...</div></details>
+                    <details>
+                        <summary>Ver biografía completa</summary>
+                        <div class="miembro-bio-full">
+Buenos Aires, 10 de marzo de 1979. Baterista, intérprete, compositor y productor.
+Tocó y grabó con Eddie Gomez, Bernard Fowler (Rolling Stones), Charly García, Alejandro Medina (Manal), Celeste Carballo, RASCASUELOS, Willy Crook, Karamelo Santo, Todos Tus Muertos, Andrés Ciro, Gustavo Cordera, Cristian "Pity" Álvarez, Javier Calamaro, Juanse, Diego Frenkel (La Portuaria) y Muerdo (España), entre muchos otros.
+Participó en grabaciones para cine y TV, incluyendo el tema principal de la película "RE-LOCA" de Natalia Oreiro.
+Se presentó en festivales como Vive Latino, Tecate Pal Norte, Lollapalooza Chile, Cosquín Rock y Baradero Rock.
+
+📷 Instagram: <a href="https://instagram.com/pedrocolpachi" target="_blank" style="color:var(--gold);">@pedrocolpachi</a>
+                        </div>
+                    </details>
                 </div>
-                <!-- Dizzy Espeche -->
+
+                <!-- DIZZY ESPECHE -->
                 <div class="miembro-card">
+                    <img class="miembro-foto" src="https://raw.githubusercontent.com/bigvictorsanders/aerophonicos.com/9d3b1fbfa220921e8503f47922d39ac79060a2a9/Dizzy.jpeg" alt="Dizzy Espeche">
                     <h3 class="miembro-nombre">Dizzy Espeche</h3>
                     <p class="miembro-rol">Guitarra</p>
-                    <details><summary>Ver biografía completa</summary><div class="miembro-bio-full">Daniel "Dizzy" Espeche, guitarrista nacido en 1979 en Buenos Aires. ...</div></details>
+                    <details>
+                        <summary>Ver biografía completa</summary>
+                        <div class="miembro-bio-full">
+Daniel "Dizzy" Espeche, guitarrista nacido en 1979 en Buenos Aires.
+Integró la banda de Emmanuel Horvilleur entre 2003 y 2010, coautor del tema "19" junto a Gustavo Cerati.
+Fue guitarrista de Fito Páez de 2010 a 2013, participando en los discos "Canciones para Aliens" y "20 años del amor", además de giras mundiales.
+Compartió escenario con Charly García, Gustavo Cerati, León Gieco, Café Tacvba y Dante Spinetta.
+Actualmente integra la banda de Coti Sorokin.
+Tocó con Tony Coleman y se presentó en festivales como Vive Latino, Quilmes Rock y Cosquín Rock.
+
+📷 Instagram: <a href="https://instagram.com/dizzyespeche" target="_blank" style="color:var(--gold);">@dizzyespeche</a>
+                        </div>
+                    </details>
                 </div>
-                <!-- Pehuén Innocenti -->
+
+                <!-- PEHUÉN INNOCENTI -->
                 <div class="miembro-card">
+                    <img class="miembro-foto" src="https://raw.githubusercontent.com/bigvictorsanders/aerophonicos.com/9d3b1fbfa220921e8503f47922d39ac79060a2a9/pehuel.jpeg" alt="Pehuén Innocenti">
                     <h3 class="miembro-nombre">Pehuén Innocenti</h3>
                     <p class="miembro-rol">Piano / Teclados / Guitarra / Voz</p>
-                    <details><summary>Ver biografía completa</summary><div class="miembro-bio-full">Músico, Pianista, Tecladista, Guitarrista, Cantante, Compositor. Argentino, nacido el 11 de enero de 1985. ...</div></details>
+                    <details>
+                        <summary>Ver biografía completa</summary>
+                        <div class="miembro-bio-full">
+Músico, pianista, tecladista, guitarrista, cantante y compositor. Nacido el 11 de enero de 1985 en Argentina.
+Trabajó en cruceros Princess Cruises (2010-2014) con Vintage People, Jet Set, Vintage Band y Rockadelics.
+Desde 2014 lidera su proyecto "Sangrando Blues" y grabó como sesionista con Bernard Fowler (Rolling Stones), Tony Coleman (B.B. King), Jimmy Rip (Mick Jagger) y Robin Banerjee (Amy Winehouse).
+Participó en más de 80 discos entre 2007 y 2025 junto a Billy Bond, Javier Vargas, Lion Powda, La Quimera & Juanse, entre otros.
+Colaboró con Ricardo Mollo y Willie Quiroga en el single "No me vengas con historias".
+
+📷 Instagram: <a href="https://instagram.com/pehueninnocenti" target="_blank" style="color:var(--gold);">@pehueninnocenti</a>
+                        </div>
+                    </details>
                 </div>
-                <!-- Ale Yaques -->
+
+                <!-- ALE YAQUES -->
                 <div class="miembro-card">
+                    <img class="miembro-foto" src="https://placehold.co/300x300/1a1a1a/C9A84C?text=Ale+Yaques" alt="Ale Yaques">
                     <h3 class="miembro-nombre">Ale Yaques</h3>
                     <p class="miembro-rol">Armónica</p>
-                    <details><summary>Ver biografía completa</summary><div class="miembro-bio-full">Nacido en Buenos Aires, 1990. Armonicista y baterista especializado en jazz y blues. ...</div></details>
+                    <details>
+                        <summary>Ver biografía completa</summary>
+                        <div class="miembro-bio-full">
+Nacido en Buenos Aires, 1990. Armonicista y baterista especializado en jazz y blues.
+Compartió escenario con Luis Alberto Spinetta, Ricardo Mollo, Javier Malosetti y León Gieco, entre otros grandes artistas.
+Galardonado en el World Harmonica Festival (Alemania). Endorser de Matrix Repairs Custom Harps y LHC Vintage Amps.
+Co-fundador de la Escuela de Armónica de Buenos Aires y baterista de Blues del Sur.
+Actualmente integra Funky Punky, un octeto de blues y jazz porteño con repertorio autoral de funk y soul.
+
+📷 Instagram: <a href="https://instagram.com/aleyaques" target="_blank" style="color:var(--gold);">@aleyaques</a>
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
