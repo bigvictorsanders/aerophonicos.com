@@ -131,6 +131,50 @@ body{background:var(--black);color:var(--offwhite);font-family:'Barlow',sans-ser
 }
 
 </style>
+
+<style>
+@media (max-width: 768px) {
+  .body { padding: 0 16px !important; }
+  .hero-text { padding: 20px 16px !important; }
+  .press-title { font-size: clamp(24px, 6vw, 42px) !important; }
+  .two-col, .presskit-wrap, .two-col-eq {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .members-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  .links-grid { grid-template-columns: 1fr 1fr !important; }
+  .contacts-grid { grid-template-columns: 1fr !important; }
+  .contact-card + .contact-card {
+    border-left: none !important;
+    border-top: 1px solid rgba(201,168,76,0.15) !important;
+  }
+  .agenda-table td { font-size: 12px !important; }
+  .td-date { width: 72px !important; }
+  .section { padding: 28px 0 !important; }
+  nav.topbar { padding: 12px 16px !important; }
+  nav.topbar > div:last-child { display: none !important; }
+  .footer { padding: 16px !important; flex-direction: column; gap: 8px; text-align: center; }
+  /* Fix negative margin sections on mobile */
+  [style*="margin: 0 -48px"] {
+    margin: 0 -16px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  /* Fix inline grids */
+  [style*="grid-template-columns:1fr 1fr"], 
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:repeat(3"],
+  [style*="grid-template-columns:1fr 1.6fr"],
+  [style*="grid-template-columns:1.4fr 1fr"],
+  [style*="grid-template-columns:280px"],
+  [style*="grid-template-columns:120px"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
 </head>
 <body>
 
