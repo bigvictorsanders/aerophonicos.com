@@ -177,9 +177,11 @@ body{background:var(--black);color:var(--offwhite);font-family:'Barlow',sans-ser
   /* Prevent overflow */
   .body, .body * { max-width: 100%; box-sizing: border-box; overflow-x: hidden; }
   img { max-width: 100% !important; height: auto !important; }
-  /* Hero image - center on Tony on mobile */
-  .hero-img-wrap { max-height: 320px !important; }
-  .hero-img-wrap img { object-position: 45% center !important; }
+  /* Hero image */
+  .hero-img-wrap { max-height: 260px !important; }
+  .hero-img-wrap img { object-position: 45% 40% !important; }
+  /* Logo mobile */
+  [alt="Tony Coleman & Aerophonicos"] { max-width: 260px !important; }
 }
 </style>
 </head>
@@ -213,6 +215,10 @@ body{top:0!important;}
 </style>
 
 <!-- HERO -->
+<!-- LOGO -->
+<div style="background:var(--black);padding:72px 48px 16px;text-align:center;border-bottom:none;">
+  <img src="https://raw.githubusercontent.com/bigvictorsanders/aerophonicos.com/241f1d02c598aeae7c2ec5dc0df820d48f3c51a1/Tony%20%26%20Aerophonicos%20logo.png" alt="Tony Coleman & Aerophonicos" style="max-width:420px;width:80%;height:auto;display:inline-block;">
+</div>
 <div class="hero-img-wrap">
   <img src="https://raw.githubusercontent.com/bigvictorsanders/aerophonicos.com/bdfd4f91ef4e95e342b939c5d866bdf94262cb47/1G4A1505-17%20edit.jpg" alt="Tony Coleman & Aerophonicos en vivo">
   <div class="hero-img-overlay"></div>
